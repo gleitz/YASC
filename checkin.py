@@ -1,12 +1,15 @@
 #!/usr/bin/python
 
+################################################################################
 # YASC: Yet Another Southwest Checkin
 # Benjamin Gleitzman (gleitz@mit.edu) - November 2012
-
+#
 # Usage: checkin.py <FIRSTNAME> <LASTNAME> <CONFIRMATIONNUMBER> <EMAIL>
+#
 # Cron may be used to schedule a future checkin.
-# A sample cron entry for perform a checkin on December 20, 2013 at 8:45AM is:
+# A sample cron entry to perform a checkin on December 20, 2013 at 8:45AM:
 # 45 08 20 12 * python /path/to/checkin.py Firstname Lastname Confirmation Email
+################################################################################
 
 import requests
 import sys
