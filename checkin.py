@@ -24,14 +24,14 @@ def checkin(firstname, lastname, confirmation, email):
                'Accept': 'text/plain',
                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
                'Host': 'mobile.southwest.com',
-               'Origin': 'http://mobile.southwest.com',
+               'Origin': 'https://mobile.southwest.com',
                }
 
     print 'Creating session...'
     s = requests.session()
 
     # Obtain the 'cacheid' cookie required for checkin
-    r = s.get('http://mobile.southwest.com/p', headers=headers)
+    r = s.get('https://mobile.southwest.com/p', headers=headers)
     cache_id = r.cookies.get('cacheid')
     time.sleep(2)
 
@@ -44,7 +44,7 @@ def checkin(firstname, lastname, confirmation, email):
                'tffname': firstname,
                'tflname': lastname,
                'button35607event_': 'Retrieve Reservation'}
-    r = s.post('http://mobile.southwest.com/p/CheckIn', data=payload, headers=headers)
+    r = s.post('https://mobile.southwest.com/p/CheckIn', data=payload, headers=headers)
     time.sleep(2)
 
     print 'Checking in...'
@@ -53,7 +53,7 @@ def checkin(firstname, lastname, confirmation, email):
                'cat': 'large',
                'pfi': 'CheckIn',
                'button7063701615128event_': 'Check In'}
-    r = s.post('http://mobile.southwest.com/p/AvailBoardingPass',
+    r = s.post('https://mobile.southwest.com/p/AvailBoardingPass',
                data=payload,
                headers=headers)
 
