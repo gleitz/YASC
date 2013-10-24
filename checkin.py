@@ -79,7 +79,7 @@ def checkin(firstname, lastname, confirmation, email):
     msg_bp = MIMEText(r.text, 'html')
     msg_bp.add_header('content-disposition', 'attachment', filename='boarding_pass.html')
     msg.attach(msg_bp)
-    smtp.sendmail(email, username, msg.as_string())
+    smtp.sendmail(username, email, msg.as_string())
 
     print 'Boarding pass sent successfully'
     smtp.close()
